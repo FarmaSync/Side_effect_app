@@ -168,7 +168,7 @@ def resolve_med_to_fk_url(user_term: str, enable_fuzzy: bool = True) -> Tuple[Op
     # Fallback: eenvoudige slug-gok
     slug_guess = normalize_ascii(user_term).lower().replace(" ", "_")
     if slug_guess:
-        for prefix in [slug_guess, f"{slug_guess}__systemisch_", f"{slug_guess}__parenteraal_"]:
+        for prefix in [slug_guess, f"{slug_guess}__systemisch_", f"{slug_guess}__parenteraal_", f"{slug_guess}__intraveneus_", f"{slug_guess}__oraal_"]:
             first = prefix[0]
             url = f"{BASE}/bladeren/preparaatteksten/{first}/{prefix}"
             r = http_get(url)
